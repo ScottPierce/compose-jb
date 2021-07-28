@@ -9,10 +9,10 @@ import org.w3c.dom.HTMLElement
 
 open class AttrsBuilder<TElement : Element> : EventsListenerBuilder() {
     internal val attributesMap = mutableMapOf<String, String>()
-    val styleBuilder = StyleBuilderImpl()
+    internal val styleBuilder = StyleBuilderImpl()
 
-    val propertyUpdates = mutableListOf<Pair<(Element, Any) -> Unit, Any>>()
-    var refEffect: (DisposableEffectScope.(TElement) -> DisposableEffectResult)? = null
+    internal val propertyUpdates = mutableListOf<Pair<(Element, Any) -> Unit, Any>>()
+    internal var refEffect: (DisposableEffectScope.(TElement) -> DisposableEffectResult)? = null
 
     fun style(builder: StyleBuilder.() -> Unit) {
         styleBuilder.apply(builder)
