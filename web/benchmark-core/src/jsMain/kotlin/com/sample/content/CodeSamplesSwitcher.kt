@@ -1,6 +1,7 @@
 package com.sample.content
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.key
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.css.selectors.*
 import org.jetbrains.compose.web.attributes.*
@@ -74,7 +75,7 @@ fun CodeSampleSwitcher(count: Int, current: Int, onSelect: (Int) -> Unit) {
                 name("code-snippet")
                 value("snippet$ix")
                 id("snippet$ix")
-                if (current == ix) checked()
+                if (current == ix) defaultChecked()
                 onInput { onSelect(ix) }
             })
             Label(forId = "snippet$ix") { Text("${ix + 1}") }

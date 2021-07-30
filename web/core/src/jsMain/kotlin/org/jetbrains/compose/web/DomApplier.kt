@@ -106,15 +106,6 @@ class DomElementWrapper(override val node: HTMLElement): DomNodeWrapper(node) {
         list.forEach {
             it.first(node, it.second)
         }
-
-        if (node is HTMLInputElement) {
-            println("setAttributesfdsd")
-            if (node.type == "checkbox" || node.type == "radio") {
-                node.setAttribute("data-remembered-value", node.checked.toString())
-            } else {
-                node.setAttribute("data-remembered-value", node.value)
-            }
-        }
     }
 
     fun updateStyleDeclarations(style: StyleHolder?) {
